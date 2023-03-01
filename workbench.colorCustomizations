@@ -1,0 +1,38 @@
+{
+    "workbench.sideBar.location": "right",
+    "window.menuBarVisibility": "toggle",
+    "powermode.enabled": true,
+    "editor.semanticTokenColorCustomizations": {
+    
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "powermode.presets": "flames",
+    "powermode.shake.intensity": 1,
+    "powermode.shake.enabled": false,
+    "editor.cursorBlinking": "expand",
+    "editor.cursorStyle": "block",
+    "editor.language.brackets": [
+    
+    ],
+    "editor.language.colorizedBracketPairs": [],
+    "workbench.colorCustomizations": {
+    
+        "editor.background": "#00000052",
+        "panel.background": "#17031f",
+        "terminal.background": "#000000",
+        "menu.background": "#1e1a53",
+        "titleBar.inactiveBackground": "#261333",
+        "tab.inactiveBackground": "#100211",
+        "tab.activeBackground": "#330b30",
+        "titleBar.activeBackground": "#000000",
+        "statusBar.border": "#050e85",
+
+    },
+    "editor.tokenColorCustomizations": {},
+    "editor.fontFamily": "'MesloLGS NF 10pt'",
+    "chatgpt.gpt3.apiKey": "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",
+    "workbench.colorTheme": "2077",
+    "window.zoomLevel": 1
+}
+
+
