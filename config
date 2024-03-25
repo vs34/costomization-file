@@ -1,0 +1,202 @@
+{
+  "layer": "top",
+    "position": "bottom",
+    "margin-bottom": 0,
+    "hight":1,
+    "modules-left": [
+      "clock",
+      "hyprland/submap",
+      "hyprland/workspaces",
+  //    "custom/updates",
+    //  "custom/playerctl",
+     "custom/playerlabel",
+      "tray",
+      ],
+    "modules-center": [
+      "hyprland/window",
+      ],
+    "modules-right": [
+      "network",
+      "temperature",
+      "memory",
+      "cpu",
+      "pulseaudio",
+      "backlight",
+      "battery",
+      "battery#bat2",
+      "custom/powermenu",
+      "custom/notification",
+    ],
+    "tray": {
+      "icon-size": 25,
+      "spacing": 10
+    },
+    "hyprland/window": {
+      "format": " {}",
+      "rewrite": {
+          "(\\d\\. )?(.*) - Google Chrome": "<span color=\"#4284F4\"></span>  $2 ",
+          "(\\d\\.)?(.*) Mozilla Firefox": "<span color=\"#F26400\"></span>  $2 ",
+          "(.*) - NVIM": "<span color=\"#57A143\"></span>  $1",
+          "NVIM": "<span color=\"#57A143\">  Neovim</span> ",
+          "ranger": "<span color=\"#ffffff\"></span>  $1",
+          "kitty (.*)": "<span color=\"#ffffff\"></span>  $1",
+          "Search(.*)": "<span color=\"#a855f7\"></span>  Search$1",
+      },
+      "separate-outputs": false
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󱐋",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        //"format-good": "", // An empty format will hide the module
+        "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "hyprland/submap": {
+      "format": "✌️ {}",
+      "max-length": 8,
+      "tooltip": true
+    },
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "1": "󰲠",
+        "2": "󰲢",
+        "3": "󰲤",
+        "4": "󰲦",
+        "5": "󰲨",
+        "6": "󰲪",
+        "7": "󰲬",
+        "8": "󰲮",
+        "9": "󰲰",
+        "10": "󰿬",
+        "-99": "",
+        "active": "",
+        "default": ""
+      }
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "temperature": {
+        "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "memory": {
+      "format": "  {}%",
+      "tooltip": "false"
+    },
+    "cpu": {
+      "format": " {usage}%",
+      "tooltip": "false"
+    },
+//    "custom/powermenu": {
+//      "format": "",
+//      "tooltip": false,
+//      "on-click": "exec wlogout -p layer-shell",
+//    },
+//    "custom/updates": {
+//      "format": "<span color=\"#61afef\"></span> {}",
+//      "tooltip": false,
+//      "interval": 3600,
+//      "exec": "exec sh /home/vs/.config/Waybar/checkupdate.sh "
+//    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+        "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "󰟎{icon} {format_source}",
+        "format-muted": "󰝟 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "󰋎",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+      "scroll-step": 1,
+      "on-click": "exec sh /home/vs/.config/hypr/scripts/volcontr.sh"
+    },
+    "custom/playerctl": {
+      "format": "{icon}",
+      "return-type": "json",
+      "max-length": 64,
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-click-middle": "playerctl play-pause",
+      "on-click": "playerctl previous",
+      "on-click-right": "playerctl next",
+      "format-icons": {
+        "Playing": "<span foreground='#E5B9C6'>󰒮 󰐌 󰒭</span>",
+        "Paused": "<span foreground='#000000'>󰒮 󰏥 󰒭</span>"
+      },
+    },
+
+    "custom/playerlabel": {
+      "format": "<span>{}</span>",
+      "return-type": "json",
+      "max-length": 48,
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "on-click-middle": "playerctl play-pause",
+      "on-click": "playerctl previous",
+      "on-click-right": "playerctl next",
+      "format-icons": {
+        "Playing": "<span foreground='#E5B9C6'>󰒮 󰐌 󰒭</span>",
+        "Paused": "<span foreground='#000000'>󰒮 󰏥 󰒭</span>"
+      },
+    },
+        "clock": {
+        // "timezone": "America/New_York",
+      //"format": "<span color=\"#56b6c2\"></span> {:%H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+      "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+}
+

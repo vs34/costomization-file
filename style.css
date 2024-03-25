@@ -1,0 +1,163 @@
+* {
+  border: none;
+  border-radius: 1px;
+  min-height: 1px;
+  margin: -3px;
+  padding: 0;
+}
+#waybar {
+  background: rgba(0, 0, 0, 0.2);;
+  color: #eeeeef;
+  font-size: 14px;
+  font-family: "Hack Nerd Font";
+}
+
+#workspaces button {
+  padding: 4px;
+  color: #7d306c;
+}
+/* Fix: active workspace doesn't show up */
+/* #workspaces button.focused { */
+#workspaces button.active {
+  color: #fa1aa4;
+}
+
+#custom-powermenu,
+#cpu,
+#temperature,
+#memory,
+#workspaces,
+#clock,
+#window,
+#pulseaudio,
+#custom-notification,
+#custom-media,
+#backlight,
+#battery ,
+#custom-updates,
+#network {
+  padding: 4px 8px;
+  background-color: #000000;
+  border-radius: 30px;
+  margin: 6px 4px;
+}
+
+#window {
+  color: #929db1;
+}
+
+#tray {
+  margin-left: 4px;
+}
+
+#custom-updates {
+  color: #1788e4;
+}
+
+
+#custom-powermenu {
+  color: #e06c75;
+  padding-right: 11px;
+  margin-right: 8px;
+}
+
+#scratchpad {
+  color: #cffafe;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+#custom-notification {
+  font-family: "NotoSansMono Nerd Font";
+}
+
+#pulseaudio {
+  color: #0fb9b1;
+  padding-right: 14px;
+}
+
+#cpu {
+  color: #61afef;
+}
+
+#temperature {
+  color: #98c379;
+}
+
+#memory {
+  color: #e5c07b;
+}
+
+#network {
+  color: #c678dd;
+  min-width: 100px;
+}
+#backlight{
+
+  color: #f8c111;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+#battery {
+    color: #ffffaf;
+  padding-right: 3px;
+  padding-left: 6px;
+    /* color: #000000; */
+}
+
+#battery.charging, #battery.plugged {
+    /* color: #ffffff; */
+    color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        /* background-color: #ffffff; */
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    color: #f53c3c;
+    /* color: #ffffff; */
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#clock {
+  color: #fcc203;
+  margin-left: 8px;
+  /* opacity: 0.7; */
+  /* font-size: 18px; */
+}
+#custom-playerctl {
+	background: #000000;
+	padding-left: 15px;
+  padding-right: 14px;
+	border-radius: 16px;
+  /*border-left: solid 1px #282738;*/
+  /*border-right: solid 1px #282738;*/
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+}
+
+#custom-playerlabel {
+    background: transparent;
+    padding-left: 10px;
+    padding-right: 15px;
+    border-radius: 16px;
+    /*border-left: solid 1px #282738;*/
+    /*border-right: solid 1px #282738;*/
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: normal;
+    font-style: normal;
+}
+
